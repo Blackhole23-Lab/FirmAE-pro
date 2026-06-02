@@ -116,6 +116,12 @@ Interactive run mode:
 python3 docker-helper.py -er <firmware>
 ```
 
+## Successful Emulation
+
+The screenshot below shows a successful emulation and debugger session, including network reachability and interactive shell access inside the emulated firmware environment.
+
+![FirmAE-pro demo](assets/firmae-demo.jpg)
+
 ## Notes
 
 - Local AI/session state, scratch data, heavyweight kernel source trees, and internal working metadata are intentionally excluded from the public repository layout.
