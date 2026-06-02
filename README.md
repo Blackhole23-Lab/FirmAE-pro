@@ -2,7 +2,7 @@
 
 FirmAE-pro is an enhanced and extended version of FirmAE, an automated firmware emulation framework for firmware analysis, debugging, and research.
 
-This repository now contains an unpacked source snapshot of the March 2026 release, together with the original packaged archive.
+This repository now contains an unpacked source snapshot of the March 2026 release, together with a repackaged public archive generated from the curated repository contents.
 
 ## Overview
 
@@ -83,8 +83,8 @@ The screenshot below shows a successful emulation and debugger workflow in actio
 
 ## Notes
 
-- Local AI/session state, scratch data, and heavyweight kernel source trees are intentionally excluded from the unpacked repository layout.
-- Some large release assets remain available through the included archive package when an exact packaged environment is needed.
+- Local AI/session state, scratch data, heavyweight kernel source trees, and internal working metadata are intentionally excluded from both the repository layout and the repackaged public archive.
+- The included archive is intended as a clean public release package rather than a raw working-directory backup.
 
 ## Disclaimer
 
