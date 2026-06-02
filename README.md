@@ -1,14 +1,14 @@
 # FirmAE-pro
 
-FirmAE-pro is an enhanced and extended version of FirmAE, an automated firmware emulation framework.
+FirmAE-pro is an enhanced and extended version of FirmAE, an automated firmware emulation framework for firmware analysis, debugging, and research.
 
-This customized build adds broader platform coverage and more practical analysis features for firmware research and debugging workflows.
+This repository now contains an unpacked source snapshot of the March 2026 release, together with the original packaged archive.
 
 ## Overview
 
-FirmAE-pro is a customized firmware emulation toolkit designed for practical device analysis, debugging, and research workflows.
+Compared with the original FirmAE workflow, this customized version focuses on broader platform compatibility and more practical runtime analysis capabilities.
 
-Compared with the original FirmAE workflow, this version focuses on broader platform compatibility and stronger runtime analysis capabilities.
+It is intended for firmware emulation, debugging, reverse engineering, and controlled security research workflows.
 
 ## Features
 
@@ -21,24 +21,59 @@ Compared with the original FirmAE workflow, this version focuses on broader plat
 
 ## Supported Architectures
 
-- `arm`
-- `arm64`
-- Additional architectures may be supported depending on the included kernels and runtime environment
+- `mipseb`
+- `mipsel`
+- `armel`
+- `armhf`
+- `aarch64`
 
-## Usage
+## Repository Layout
 
-This repository currently serves as an archive distribution repository for the packaged FirmAE-pro release.
+- `scripts/` - emulation, setup, networking, and kernel build helpers
+- `sources/` - helper sources such as console, extractor, scraper, and libnvram components
+- `analyses/` - analyzer, fuzzer, and RouterSploit-related components
+- `binaries/` - runtime helpers and selected prebuilt binaries used by the framework
+- `core/` - helper tools used during setup and execution
+- `database/` - database schema and related files
+- `assets/` - README images and supporting media
 
-The main package included here is:
+## Included Release Archive
+
+The full packaged release is still included in this repository:
 
 - `FirmAE-20260304.tar.zst`
+- `FirmAE-20260304.tar.zst.sha256`
 
-Typical usage workflow:
+SHA-256:
 
-1. Extract the package
-2. Prepare the required emulation environment
-3. Load the target firmware image
-4. Run emulation, debugging, or analysis tasks such as decryption, patching, and hooking
+`8b108b2ec42f45ab29411e1a846e39ca1eae60db5efe213451c1ec32795443ba`
+
+## Quick Start
+
+1. Install dependencies:
+
+```bash
+./download.sh
+./install.sh
+```
+
+2. Initialize the environment:
+
+```bash
+./init.sh
+```
+
+3. Run firmware emulation:
+
+```bash
+sudo ./run.sh -c <brand> <firmware>
+```
+
+4. Use debug mode when needed:
+
+```bash
+sudo ./run.sh -d <brand> <firmware>
+```
 
 ## Screenshots
 
@@ -46,16 +81,10 @@ The screenshot below shows a successful emulation and debugger workflow in actio
 
 ![FirmAE-pro demo](assets/firmae-demo.jpg)
 
-## Package Contents
+## Notes
 
-- `FirmAE-20260304.tar.zst`
-- `FirmAE-20260304.tar.zst.sha256`
-
-## Integrity
-
-SHA-256:
-
-`8b108b2ec42f45ab29411e1a846e39ca1eae60db5efe213451c1ec32795443ba`
+- Local AI/session state, scratch data, and heavyweight kernel source trees are intentionally excluded from the unpacked repository layout.
+- Some large release assets remain available through the included archive package when an exact packaged environment is needed.
 
 ## Disclaimer
 

@@ -1,0 +1,19 @@
+--- a/drivers/firmadyne/firmadyne.c
++++ b/drivers/firmadyne/firmadyne.c
+@@ Description: Compatibility patch for kernels 3.10.x - 4.0.x
+@@ These kernels have slightly different API from 4.1 but still support jprobes
+@@ 兼容性补丁: 适用于 3.10.x - 4.0.x 内核
+@@ 这些内核的 API 与 4.1 略有不同，但仍支持 jprobes
+
+--- This patch adapts the firmadyne driver from the v4.1 kernel tree
+--- to work with kernels in the 3.10.x to 4.0.x range.
+--- Key changes:
+---   - PDE_DATA() may not exist in older 3.10 (use PDE()->data)
+---   - Some VFS function signatures differ
+---   - proc_create_data vs older proc API
+
+--- Note: This is a template patch. The actual adaptation is done
+--- programmatically in build_kernels.sh via sed transformations,
+--- because the exact changes depend on the specific sub-version.
+--- 注意: 这是一个模板补丁。实际的适配在 build_kernels.sh 中
+--- 通过 sed 转换以编程方式完成，因为确切的更改取决于具体的子版本。

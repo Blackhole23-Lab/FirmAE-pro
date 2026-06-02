@@ -1,0 +1,14 @@
+# Exclude large binary artifacts and temporary files
+scratch/*
+images/*
+.git/objects/pack/*.pack
+*.o
+*.ko
+*.a
+*.so.debug
+__pycache__/
+*.pyc
+*.pyo
+.omc/
+analyses/chromedriver
+analyses/routersploit/.git
