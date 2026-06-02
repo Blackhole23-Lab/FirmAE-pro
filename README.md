@@ -64,6 +64,58 @@ sudo ./run.sh -c <brand> <firmware>
 sudo ./run.sh -d <brand> <firmware>
 ```
 
+## Docker
+
+This project can also run through Docker.
+
+The repository includes:
+
+- `core/Dockerfile` - container image definition
+- `docker-init.sh` - builds the Docker image
+- `docker-helper.py` - runs emulation, analysis, and debug workflows inside containers
+
+### Docker prerequisites
+
+- Docker installed on the host
+- Host PostgreSQL initialized through the normal setup flow
+- Privileged container support enabled
+
+The Docker helper mounts the local repository into the container and relies on the host PostgreSQL service.
+
+### Build the Docker image
+
+```bash
+./docker-init.sh
+```
+
+This builds the core image with the tag `fcore`.
+
+### Run emulation in Docker
+
+Check emulation:
+
+```bash
+python3 docker-helper.py -ec <brand> <firmware>
+```
+
+Run emulation and analysis:
+
+```bash
+python3 docker-helper.py -ea <brand> <firmware>
+```
+
+Run debug mode:
+
+```bash
+python3 docker-helper.py -ed <firmware>
+```
+
+Interactive run mode:
+
+```bash
+python3 docker-helper.py -er <firmware>
+```
+
 ## Notes
 
 - Local AI/session state, scratch data, heavyweight kernel source trees, and internal working metadata are intentionally excluded from the public repository layout.
